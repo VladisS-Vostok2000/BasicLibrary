@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>G:\Programs\C#\Game\BasicTypesLibrary\BasicTypesLibrary.xml</DocumentationFile>
+  </PropertyGroup>
+
+</Project>

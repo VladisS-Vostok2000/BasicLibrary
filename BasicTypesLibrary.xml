@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BasicTypesLibrary</name>
+    </assembly>
+    <members>
+        <member name="M:BasicTypesLibrary.BasicTypesExtensions.ToRange(System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Гарантирует нахождение числа в заданном диапазоне.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.BasicTypesExtensions.IsInRange(System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            <see langword="true"/>, если число лежит в заданном диапазоне включительно.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.BasicTypesExtensions.NotNegative(System.Single@)">
+            <summary>
+            Возвращает 0, если число меньше нуля или само значение иначе.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.BasicTypesExtensions.ClearEmptySpaces(System.String)">
+            <summary>
+            Отчистит строку от символов, относящихся к категории пробелов.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.BasicTypesExtensions.Substring(System.String,System.Int32,System.Char)">
+            <summary>
+            Извлекает подстроку с заданной позиции, пока не будет встречен заданный символ.
+            Возвращается строка содержащая символ со стартовой индексацией, но без заданного.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.BasicTypesExtensions.ExtractWord(System.String,System.Int32)">
+            <summary>
+            Извлекает подстроку с заданной позиции, пока не будет встречен символ, относящийся к категории пробелов.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.BasicTypesExtensions.Remove(System.String,System.Char)">
+            <summary>
+            Возвращает строку, в которой все заданные символы отсутствуют.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.BasicTypesExtensions.SplitToLines(System.String,System.StringSplitOptions)">
+            <summary>
+            Возвращает проходящий по строкам перечислитель заданного текста.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.BasicTypesExtensions.IndexOfNewLine(System.String)">
+            <summary>
+            Возвращает индекс символа(-ов), относящихся к переносу строки.
+            -1, если не найден.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.BasicTypesExtensions.IndexOfNewLine(System.String,System.Int32)">
+            <summary>
+            Возвращает индекс символа(-ов), относящихся к переносу строки.
+            -1, если не найден.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:BasicTypesLibrary.BasicTypesExtensions.ContainsNewLine(System.String)">
+            <summary>
+            <see langword="true"/>, если содержит символ переноса строки.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.BasicTypesExtensions.StringPart(System.String,System.Int32)">
+            <summary>
+            Возвращает подстроку заданной длинны. Вернётся полная строка при избыточной длинне.
+            Вернётся пустая строка при длинне 0.
+            </summary>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:BasicTypesLibrary.CollectionsExtensions.Fill``1(``0[],``0)">
+            <summary>
+            Заполнит массив заданными значениями.
+            </summary>
+            <returns> Ссылка на текущий массив. </returns>
+        </member>
+        <member name="M:BasicTypesLibrary.CollectionsExtensions.Fill``1(``0[],System.Func{``0})">
+            <summary>
+            Заполнит массив значением, возвращаемым заданным делегатом.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.CollectionsExtensions.Fill``1(``0[0:,0:],``0)">
+            <summary>
+            Заполнит массив заданным значением.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.CollectionsExtensions.AsReadOnly``1(``0[])">
+            <summary>
+            Создаст нередактируемое отражение <see cref="T:System.Array"/>.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.CollectionsExtensions.AsReadOnly``1(``0[0:,0:])">
+            <summary>
+            Создаст нередактируемое отражение <see cref="T:System.Array"/>.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.CollectionsExtensions.IsEmptyOrFlat``1(``0[0:,0:])">
+            <summary>
+            <see langword = "true"/>, если массив имеет два ненулевых измерения.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.CollectionsExtensions.Empty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            <see langword="true"/>, если коллекция пуста.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.CollectionsExtensions.AppendRange``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Вставляет заданный <see cref="T:System.Collections.Generic.IEnumerable`1"/> в начало <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
+            </summary>
+            <returns> Новый объект <see cref="T:System.Collections.Generic.IEnumerable`1"/>. </returns>
+        </member>
+        <member name="M:BasicTypesLibrary.CollectionsExtensions.PrependRange``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Вставляет заданный <see cref="T:System.Collections.Generic.IEnumerable`1"/> в начало <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enm"></param>
+            <param name="insertedEnum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BasicTypesLibrary.CollectionsExtensions.Empty``1(System.Collections.Generic.IReadOnlyCollection{``0})">
+            <summary>
+            <see langword="true"/>, если коллекция пуста.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.CollectionsExtensions.Contains``1(System.Collections.Generic.ICollection{``0},System.Predicate{``0})">
+            <summary>
+            <see langword="true"/>, если содержит определяемое делегатом значение.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.CollectionsExtensions.TryGet``1(System.Collections.Generic.ICollection{``0},System.Predicate{``0},``0@)">
+            <summary>
+            Возвращает первое с начала вхождение элемента в коллекции, соответствующего заданному предикату.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.CollectionsExtensions.AddRange``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Вставляет коллекцию элементов в конец текущей.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.CollectionsExtensions.RemoveLastItem``1(System.Collections.Generic.ICollection{``0})">
+            <summary>
+            Удаляет последний элемент коллекции.
+            </summary>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:BasicTypesLibrary.CollectionsExtensions.IsEven``1(System.Collections.Generic.IList{``0})">
+            <summary>
+            <see langword="true"/>, если все элементы последовательности равны между собой.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.CollectionsExtensions.SetLast``1(System.Collections.Generic.IList{``0},``0)">
+            <summary>
+            Присвоит последнему элементу листа значение.
+            </summary>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:BasicTypesLibrary.CollectionsExtensions.AddHead``1(System.Collections.Generic.IList{``0},``0)">
+            <summary>
+            Вставляет элемент в начало <see cref="T:System.Collections.Generic.IList`1"/>.
+            </summary>
+            <returns> Ссылка на текущий экземпляр. </returns>
+        </member>
+        <member name="M:BasicTypesLibrary.CollectionsExtensions.AddHeadRange``1(System.Collections.Generic.IList{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Добавит заданную <see cref="T:System.Collections.Generic.IEnumerable`1"/> в начало списка.
+            </summary>
+            <returns> Текущий <see cref="T:System.Collections.Generic.IList`1"/>. </returns>
+        </member>
+        <member name="M:BasicTypesLibrary.SystemDrawingExtensions.Sum(System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            Ссумирует координаты точки.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.SystemDrawingExtensions.Sum(System.Drawing.Point,System.Int32,System.Int32)">
+            <summary>
+            Ссумирует координаты точки.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.SystemDrawingExtensions.Substract(System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            Вычтет координаты точки.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.SystemDrawingExtensions.CloseTo(System.Drawing.Point,System.Drawing.Point)">
+            <summary>
+            <see langword="true"/>, если заданный <see cref="T:System.Drawing.Point"/> с четырёх сторон к объекту вплотную.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.SystemDrawingExtensions.Invert(System.Drawing.Point)">
+            <summary>
+            Возвращает объект с инвертированными координаты.
+            </summary>
+        </member>
+        <member name="M:BasicTypesLibrary.SystemDrawingExtensions.IsEmptyOrFlat(System.Drawing.Size)">
+            <summary>
+            <see langword="true"/>, если размер одной из сторон нулевой.
+            </summary>
+        </member>
+    </members>
+</doc>
