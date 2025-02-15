@@ -4,11 +4,15 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml.Schema;
 
-namespace BasicTypesLibrary {
+namespace BasicLibrary {
     public static class BasicTypesExtensions {
 
+        // TODO: Documentation to english.
+
         #region Int32
+
         /// <summary>
         /// Возвращает число в заданном диапазоне в соответсвии с правилом, как если бы следующее число после последнего в диапазоне соответсвовало первому в диапазоне, и наоборот.
         /// </summary>
@@ -29,16 +33,64 @@ namespace BasicTypesLibrary {
         /// <see langword="true"/>, если число лежит в заданном диапазоне включительно с обоих границ.
         /// </summary>
         public static bool IsInRange(in this int target, in int lowerBound, in int upperBound) => target >= lowerBound && target <= upperBound;
+
+        /// <summary>
+        /// Возвращает число, крайняя правая ненулевая цифра которого округляется в следующий слева разряд.
+        /// </summary>
+        public static int Round(in this int target) {
+            if (target == 0) {
+                return 0;
+            }
+
+            int sign = System.Math.Sign(target);
+
+            int digitToRound = System.Math.Abs(target) % 10;
+            int trancatedNumber = System.Math.Abs(target) / 10;
+            int dozens = 1;
+            while (digitToRound == 0) {
+                digitToRound = trancatedNumber % 10;
+                trancatedNumber /= 10;
+                dozens++;
+            }
+
+            int roundedDigit = digitToRound < 5 ? 0 : 1;
+            int multiplicator = 1;
+            for (int i = 0; i < dozens; i++) {
+                multiplicator *= 10;
+            }
+
+            return (trancatedNumber + roundedDigit) * multiplicator * sign;
+        }
+
         #endregion
 
+
         #region Float
+
         /// <summary>
         /// Возвращает 0, если число меньше нуля или само значение иначе.
         /// </summary>
         public static float NotNegative(in this float target) => target < 0 ? 0 : target;
+
         #endregion
 
+
         #region String
+
+        /// <summary>
+        /// <see langword="true"/>, если строка состоит лишь из символов-пробелов.
+        /// </summary>
+        public static bool IsWhiteSpaces(this string @string) {
+            for (int i = 0; i < @string.Length; i++) {
+                char @char = @string[i];
+                if (!char.IsWhiteSpace(@char)) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         /// <summary>
         /// Отчистит строку от символов, относящихся к категории пробелов.
         /// </summary>
@@ -51,6 +103,19 @@ namespace BasicTypesLibrary {
             }
 
             return sb.ToString();
+        }
+
+        /// <returns>
+        /// <see langword="true"/>, if presented string <see cref="string"/> contains control character.
+        /// </returns>
+        public static bool ContainsControlCharacter(this string target) {
+            foreach (var @char in target) {
+                if (char.IsControl(@char)) {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -141,15 +206,49 @@ namespace BasicTypesLibrary {
         /// </summary>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static string StringPart(this string value, int length) {
+            return value.StringPart(0, length);
+        }
+
+        /// <summary>
+        /// Возвращает подстроку заданной длинны. Вернётся полная строка при избыточной длинне.
+        /// Вернётся пустая строка при длинне 0.
+        /// </summary>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static string StringPart(this string value, int startIndex, int length) {
             if (length < 0) {
                 throw new ArgumentOutOfRangeException(nameof(length), "Длинна не может быть отрицательной.");
             }
 
-            if (length <= value.Length) {
-                return value.Substring(0, length);
+            if (startIndex == 0 && length == value.Length) {
+                return value;
             }
 
-            return value.Substring(0, value.Length);
+            if (startIndex < value.Length - length) {
+                return value.Substring(startIndex, value.Length);
+            }
+
+            int actualLength = value.Length - startIndex;
+            return value.Substring(startIndex, actualLength);
+        }
+
+        /// <summary>
+        /// <see langword="true"/>, если длинна строки равна нулю.
+        /// </summary>
+        public static bool Empty(this string @string) {
+            return @string.Length == 0;
+        }
+
+        /// <summary>
+        /// Returns the same <see cref="string"/>, if there is dot on the end.
+        /// Returns string with dot on the end instead.
+        /// Trimms spaces at the end.
+        /// </summary>
+        public static string Dot(this string @string) {
+            if (@string.Last() == '.') {
+                return @string;
+            }
+
+            return @string.TrimEnd() + '.';
         }
 
         #endregion
